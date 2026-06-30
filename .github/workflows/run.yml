@@ -10,13 +10,17 @@ on:
 
 env:
   UPDATE_IPV4: true
-  UPDATE_IPV6: true
+  # UPDATE_IPV6: true
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v4
+      - name: 'Keepalive'
+        uses: gautamkrishnar/keepalive-workflow@v2
       - name: 'Set up Python'
         uses: actions/setup-python@v6
         with:
