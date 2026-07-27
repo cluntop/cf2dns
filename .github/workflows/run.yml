@@ -8,15 +8,15 @@ on:
     - cron: '*/15 * * * *'
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 env:
   UPDATE_IPV4: true
   # UPDATE_IPV6: true
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v4
